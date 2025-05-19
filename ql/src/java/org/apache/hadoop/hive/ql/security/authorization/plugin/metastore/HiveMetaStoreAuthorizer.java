@@ -77,12 +77,11 @@ public class HiveMetaStoreAuthorizer extends MetaStorePreEventListener {
 
   public HiveMetaStoreAuthorizer(Configuration config) {
     super(config);
-    LOG.info("==> gbj3HiveMetaStoreAuthorizerConstructor");
+    LOG.info("==> Hive HMSA v1.3.1 HiveMetaStoreAuthorizer");
   }
 
   @Override
   public final void onEvent(PreEventContext preEventContext) throws MetaException, NoSuchObjectException, InvalidOperationException {
-     LOG.info("==> gbj3HiveMetaStoreAuthorizer.onEvent(): EventType=" + preEventContext.getEventType());
     if (LOG.isDebugEnabled()) {
       LOG.debug("==> HiveMetaStoreAuthorizer.onEvent(): EventType=" + preEventContext.getEventType());
     }
