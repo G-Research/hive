@@ -479,12 +479,8 @@ public class Driver implements IDriver {
    * @param command
    *          The SQL query to compile.
    */
-  boolean gbjThrow=true;
   @Override
   public int compile(String command) {
-    if (gbjThrow) {
-      throw new RuntimeException("gbjWasHere");
-    }
     return compile(command, true);
   }
 
@@ -508,9 +504,6 @@ public class Driver implements IDriver {
   // interrupted, it should be set to true if the compile is called within another method like
   // runInternal, which defers the close to the called in that method.
   private void compile(String command, boolean resetTaskIds, boolean deferClose) throws CommandProcessorResponse {
-    if (gbjThrow) {
-      throw new RuntimeException("gbjWasHere");
-    }
     PerfLogger perfLogger = SessionState.getPerfLogger(true);
     perfLogger.PerfLogBegin(CLASS_NAME, PerfLogger.DRIVER_RUN);
     perfLogger.PerfLogBegin(CLASS_NAME, PerfLogger.COMPILE);
