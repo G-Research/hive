@@ -77,7 +77,7 @@ public class HiveMetaStoreAuthorizer extends MetaStorePreEventListener {
 
   public HiveMetaStoreAuthorizer(Configuration config) {
     super(config);
-    LOG.info("==> Hive HMSA v1.3.1 HiveMetaStoreAuthorizer");
+    LOG.info("==> Hive HMSA v1.3.1 HiveMetaStoreAuthorizer Constructor");
   }
 
   @Override
