@@ -77,6 +77,7 @@ public class HiveMetaStoreAuthorizer extends MetaStorePreEventListener {
 
   public HiveMetaStoreAuthorizer(Configuration config) {
     super(config);
+    LOG.info("==> Hive HMSA v1.3.1 HiveMetaStoreAuthorizer");
   }
 
   @Override
@@ -140,21 +141,12 @@ public class HiveMetaStoreAuthorizer extends MetaStorePreEventListener {
           break;
         case CREATE_TABLE:
           authzEvent = new CreateTableEvent(preEventContext);
-          if (isViewOperation(preEventContext) && (!isSuperUser(getCurrentUser(authzEvent)))) {
-            throw new MetaException(getErrorMessage("CREATE_VIEW", getCurrentUser(authzEvent)));
-          }
           break;
         case ALTER_TABLE:
           authzEvent = new AlterTableEvent(preEventContext);
-          if (isViewOperation(preEventContext) && (!isSuperUser(getCurrentUser(authzEvent)))) {
-            throw new MetaException(getErrorMessage("ALTER_VIEW", getCurrentUser(authzEvent)));
-          }
           break;
         case DROP_TABLE:
           authzEvent = new DropTableEvent(preEventContext);
-          if (isViewOperation(preEventContext) && (!isSuperUser(getCurrentUser(authzEvent)))) {
-            throw new MetaException(getErrorMessage("DROP_VIEW", getCurrentUser(authzEvent)));
-          }
           break;
         case ADD_PARTITION:
           authzEvent = new AddPartitionEvent(preEventContext);

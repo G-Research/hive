@@ -8780,7 +8780,7 @@ public class HiveMetaStore extends ThriftHiveMetastore {
   public static void main(String[] args) throws Throwable {
     final Configuration conf = MetastoreConf.newMetastoreConf();
     shutdownHookMgr = ShutdownHookManager.get();
-    LOG.info("Hive HMSA v1.3");
+    LOG.info("Hive HMSA v1.3.1");
 
     HiveMetastoreCli cli = new HiveMetastoreCli(conf);
     cli.parse(args);
