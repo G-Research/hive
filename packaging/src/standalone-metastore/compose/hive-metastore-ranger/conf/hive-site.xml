@@ -26,6 +26,10 @@
     <value>org.apache.hadoop.hive.metastore.events.EventCleanerTask</value>
   </property>
   <property>
+    <name>hive.cluster.delegation.token.store.class</name>
+    <value>org.apache.hadoop.hive.thrift.DBTokenStore</value>
+  </property>
+  <property>
     <name>metastore.expression.proxy</name>
     <value>org.apache.hadoop.hive.metastore.DefaultPartitionExpressionProxy</value>
   </property>
